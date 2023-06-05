@@ -1,0 +1,17 @@
+const express = require('express');
+const cors = require('cors');
+const httpProxy = require('express-http-proxy');
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+
+app.use('/gateway', httpProxy('http://localhost:3000'))
+app.use('/customers', httpProxy('http://localhost:3001'))
+app.use('/products', httpProxy('http://localhost:3002'))
+app.use('/shopping', httpProxy('http://localhost:3003'))
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => console.log(`api gateway listening on ${port}`))
+
