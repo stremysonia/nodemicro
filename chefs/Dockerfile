@@ -1,5 +1,4 @@
 #each step is a layer 
-
 FROM node:latest
 
 WORKDIR /app

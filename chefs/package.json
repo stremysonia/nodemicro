@@ -1,12 +1,12 @@
 {
-  "name": "nodemicro",
+  "name": "chefs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon"
+    "dev": "nodemon indexjs"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,14 @@
   },
   "homepage": "https://github.com/stremysonia/nodemicro#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2",
+    "uuid": "^9.0.0",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

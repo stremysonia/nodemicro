@@ -5,6 +5,8 @@ const { MONGO_IP, MONGO_USER, MONGO_PASSWORD, MONGO_PORT } = require('./config')
 
 const app = express();
 
+app.use(express.json())
+
 const reConnect = () =>{
     mongoose.connect(`monggodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`,{
     useNewUrlParserL: true,
@@ -18,12 +20,12 @@ const reConnect = () =>{
     });
 }
 
-app.get('/', (req, res) =>{
+app.use('/', (req, res) =>{
     res.send("this is a test route")
 });
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 
 app.listen(port, () => console.log(`app is listening on ${port}`));
