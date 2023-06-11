@@ -1,6 +1,6 @@
 name: practicalgitops.app
 env:
-  DOCKERHUB_TAG: "${{ secrets.DOCKERHUB_USERNAME/cheffapp-users"
+  DOCKERHUB_TAG: "${{ secrets.DOCKERHUB_USERNAME/cheffapp-users}}"
   DOCKERFILE_PATH: users
 on:
   push:
