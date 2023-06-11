@@ -1,7 +1,7 @@
 name: practicalgitops.app
 env:
-  DOCKERHUB_TAG: "${{ secrets.USERNAME/cheffapp-users}}"
-  DOCKERFILE_PATH: users
+  DOCKERHUB_TAG: 'jespstpierre/cheffapp-users'
+  DOCKERFILE_PATH: ./users
 on:
   push:
     branches:
