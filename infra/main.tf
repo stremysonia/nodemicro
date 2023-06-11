@@ -23,5 +23,5 @@ module "networking" {
     private_subnets = var.private_subnets
     namespace = var.namespace
 
-    depends_on = [module.eks_cluste]
+    //depends_on = [module.eks_cluste]
 }

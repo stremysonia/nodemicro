@@ -1,13 +1,13 @@
-name: practicalgitops.app
+name: push users microservice to dockerhub
 env:
-  DOCKERHUB_TAG: "${{ secrets.DOCKERHUB_USERNAME/cheffapp-users"
-  DOCKERFILE_PATH: users
+  DOCKERHUB_TAG: 'jespstpierre/cheffapp-users'
+  DOCKERFILE_PATH: ./users
 on:
   push:
     branches:
       - main
     paths:
-      - "app/**"
+      - "users/**"
       - "!**/README.md"
 
 jobs:
