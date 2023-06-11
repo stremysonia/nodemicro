@@ -1,4 +1,3 @@
-#each step is a layer 
 FROM node:latest
 
 WORKDIR /app
@@ -9,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 
-CMD ["node", "index.js"] 
+CMD [ "node", "index.js" ]

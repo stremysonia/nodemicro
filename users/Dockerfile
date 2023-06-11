@@ -1,4 +1,4 @@
-FROM node:'latest'
+FROM node:latest
 
 WORKDIR /app
 
@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3003
+EXPOSE 3001
 
-CMD ["node", "index.json"]
+CMD [ "node", "index.js" ]
