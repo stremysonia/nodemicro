@@ -9,6 +9,7 @@ module "eks_cluster" {
     namespace = var.namespace
     vpc_pub_sub = module.networking.public_subnets
     vpc_priv_sub = module.networking.private_subnets
+    subnets = module.networking.subnets
     cluster_version = var.cluster_version
     cluster_service_ipv4_cidr = var.cluster_service_ipv4_cidr
     cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs

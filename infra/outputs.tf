@@ -50,24 +50,24 @@ output "cluster_primary_security_group_id" {
 }
 
 # EKS Node Group Outputs - Public
-output "node_group_public_id" {
-  description = "Public Node Group ID"
-  value       = module.eks_cluster.node_group_public_id
-}
-output "node_group_public_arn" {
-  description = "Public Node Group ARN"
-  value       = module.eks_cluster.node_group_public_arn
-}
+#output "node_group_public_id" {
+#  description = "Public Node Group ID"
+#  value       = module.eks_cluster.node_group_public_id
+#}
+#output "node_group_public_arn" {
+#  description = "Public Node Group ARN"
+#  value       = module.eks_cluster.node_group_public_arn
+#}
 
-output "node_group_public_status" {
-  description = "Public Node Group status"
-  value       = module.eks_cluster.node_group_public_status
-}
+#output "node_group_public_status" {
+#  description = "Public Node Group status"
+#  value       = module.eks_cluster.node_group_public_status
+#}
 
-output "node_group_public_version" {
-  description = "Public Node Group Kubernetes Version"
-  value       = module.eks_cluster.node_group_public_version
-}
+#output "node_group_public_version" {
+#  description = "Public Node Group Kubernetes Version"
+#  value       = module.eks_cluster.node_group_public_version
+#}
 
 # EKS Node Group Outputs - Private
 
@@ -89,4 +89,16 @@ output "node_group_private_status" {
 output "node_group_private_version" {
   description = "Private Node Group Kubernetes Version"
   value       = module.eks_cluster.node_group_private_version
+}
+
+output "public_subnets" {
+  value       = module.networking.public_subnets
+}
+
+output "private_subnets" {
+  value       = module.networking.private_subnets
+}
+
+output "subnets" {
+  value       = module.networking.subnets
 }

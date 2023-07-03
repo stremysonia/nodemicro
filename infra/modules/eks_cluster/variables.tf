@@ -11,6 +11,10 @@ variable "vpc_priv_sub" {
   type = any 
 }
 
+variable "subnets" {
+  type = any 
+}
+
 //name of our cluster
 variable "namespace" {
   description = "projet name"

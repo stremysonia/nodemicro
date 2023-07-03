@@ -19,14 +19,12 @@ module "vpc" {
 
   # Additional Tags to Subnets
   public_subnet_tags = {
-    Type = "Public Subnets"
-    "kubernetes.io/role/elb" = 1    
-    "kubernetes.io/cluster/${var.namespace}" = "shared"        
+    "kubernetes.io/cluster/cheffapp-cluster" = "shared"
+    "kubernetes.io/role/elb" = "1"        
   }
   private_subnet_tags = {
-    Type = "private-subnets"
-    "kubernetes.io/role/internal-elb" = 1    
-    "kubernetes.io/cluster/${var.namespace}" = "shared"    
+    "kubernetes.io/cluster/cheffapp-cluster" = "shared"
+    "kubernetes.io/role/internal-elb" = "1"        
   }
   # Instances launched into the Public subnet should be assigned a public IP address.
   map_public_ip_on_launch = true

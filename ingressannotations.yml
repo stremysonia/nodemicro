@@ -1,0 +1,34 @@
+cat > ingress.annotations.yaml << EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontend
+  namespace: webapp
+  annotations:
+$ANNOTATIONS
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /yellow
+            pathType: Exact
+            backend:
+              service:
+                name: forward-tg-svc1
+                port:
+                  name: use-annotation
+          - path: /cyan
+            pathType: Exact
+            backend:
+              service:
+                name: forward-tg-svc2
+                port:
+                  name: use-annotation
+          - path: /white
+            pathType: Exact
+            backend:
+              service:
+                name: custom-path1
+                port:
+                  name: use-annotation
+EOF

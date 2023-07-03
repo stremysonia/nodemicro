@@ -1,18 +1,44 @@
-#this is for share dependencies
 version: '3'
 services:
-  node-app:
+  node-users-app:
     build:
-      context: 
-    
+      dockerfile: Dockerfile
+      context: ./users
+    volumes:
+      - /app/node_modules
+      - ./users:/app
+    ports:
+      - "3001:3001"
     environment:
-      - PORT=3000
+      - MONGO_USER=jepymongo
+      - MONGO_PASSWORD=jepymongo
+    depends_on:
+      - mongo
+      
+  node-shopping-app:
+    build:
+      dockerfile: Dockerfile
+      context: ./shopping
+    volumes:
+      - /app/node_modules
+      - ./shopping:/app
+    ports:
+      - "3002:3002"
+    environment:
+      - MONGO_USER=jepymongo
+      - MONGO_PASSWORD=jepymongo
     depends_on:
       - mongo
   
   mongo:
     image: mongo
     environment:
-      - MONGO
+      - MONGO_INITDB_ROOT_USERNAME=jepymongo
+      - MONGO_INITDB_ROOT_PASSWORD=jepymongo
     volumes:
-      - mongo-db:
+      - mongodb:/data/db
+
+
+volumes:
+  mongodb:
+     

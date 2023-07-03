@@ -1,7 +1,3 @@
-/k8s
-/chefs
-/.github
-jenkinsfile
 # Logs
 logs
 *.log
