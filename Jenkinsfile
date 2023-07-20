@@ -1,8 +1,10 @@
-stages {
-    stage('Nginx') {
-        when { changeset "nginx/*"}
-        steps {
-            sh "make build-nginx"
-            sh "make start-nginx"
-        }
-    }
+pipeline {
+     agent any
+     stages {
+         stage('Hello Stage') {
+               steps {
+                    sh './scripts.sh'
+               }
+          }
+     }
+}
