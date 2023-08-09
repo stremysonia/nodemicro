@@ -1,5 +1,13 @@
 version: '3'
 services:
+  nat-streaming-server:
+    image: nats-streaming
+    expose:
+      - "4222"
+    ports:
+      - "8222:8222"
+    hostname: nats-server
+
   node-users-app:
     build:
       dockerfile: Dockerfile
@@ -12,8 +20,10 @@ services:
     environment:
       - MONGO_USER=jepymongo
       - MONGO_PASSWORD=jepymongo
+      - "NATS_URI=nats://nats:4222"
     depends_on:
       - mongo
+      - nat-streaming-server
       
   node-shopping-app:
     build:
@@ -41,4 +51,6 @@ services:
 
 volumes:
   mongodb:
-     
+
+
+# docker run -d --name nats-streaming -p 4222:4222 -p 8222:8222 nats-streaming

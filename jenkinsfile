@@ -6,3 +6,4 @@ stages {
             sh "make start-nginx"
         }
     }
+}

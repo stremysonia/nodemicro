@@ -1,24 +1,29 @@
 const mongoose = require('mongoose');
 
-const DishSchema = new mongoose.Schema({
-  dishName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-  price: {
-    type: Number,
-    required: true
-  },
-  image: {
-    type: String
-  },
-  Description: {
-    type: String,
-    trim: true
-  },
+const DishSchema = new mongoose.Schema(
+  {
+    _id:mongoose.Schema.Types.ObjectId,
+    dishName: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    price: {
+      type: Number,
+      required: true
+    },
+    banner: {
+      type: String
+    },
+    Description: {
+      type: String,
+      trim: true
+    },
+    store: {
+      _id:mongoose.Schema.Types.ObjectId,
+      storename: {type:String},
+    }
 });
 
 
-const Dish = mongoose.model('Dish', DishSchema);
-module.exports = Dish;
+module.exports = mongoose.model('Dish', DishSchema);
