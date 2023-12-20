@@ -39,6 +39,16 @@ services:
       - MONGO_PASSWORD=jepymongo
     depends_on:
       - mongo
+
+  node-streaming-app:
+    build:
+      dockerfile: Dockerfile
+      context: ./video
+    volumes:
+      - /app/node_modules
+      - ./video:/app
+    ports:
+      - "3008:3008"
   
   mongo:
     image: mongo

@@ -1,18 +1,18 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: {
-    web: './web/index.js',           // Entry point for the web app
-    native: './index.native.js'
-  },
+  //the entry to the app
+  entry: './src/index.js',
+  //output after running npm build
   output: {
-    filename: "bundle.[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: 'bundle.[hash].js',
+    path: path.resolve(__dirname, 'dist'),
   },
+  //plugins that we are using in our project
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
     }),
   ],
   resolve: {
@@ -22,9 +22,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.css$/,
