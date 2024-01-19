@@ -6,16 +6,19 @@ phases:
       nodejs: 20
     commands:
       - echo "Install dependencies"
+      - cd client/web
       - npm install
 
     build:
       commands:
         - echo "Build phase commands"
+        - cd client/web
         - npm run build
     
     post_build:
       commands:
         - echo "upload file into s3 bucket"
+        - cd client/web
         - aws s3 sync dist/ s3://jepyviews.net
 artifacts:
   files: '**/*'
