@@ -19,7 +19,7 @@ phases:
   post_build:
     commands:
       - echo "upload file into s3 bucket"
-      - aws s3 sync web/ s3://jepyviews.net
+      - aws s3 sync dist/* s3://jepyviews.net
 
 artifacts:
   files: '**/*'
