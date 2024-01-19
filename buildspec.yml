@@ -22,3 +22,8 @@ phases:
       - echo "upload file into s3 bucket"
       - cd client/web
       - aws s3 sync web/ s3://jepyviews.net
+
+artifacts:
+  files: '**/*'
+  base-directory: 'nodemicro/client/web'
+  discard-paths: no
