@@ -23,5 +23,5 @@ phases:
 
 artifacts:
   files: '**/*'
-  base-directory: 'nodemicro/client/web'
+  base-directory: 'nodemicro'
   discard-paths: no
