@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      nodejs: 20
+    commands:
+      - echo "Install dependencies"
+      - npm install
+
+    build:
+      commands:
+        - echo "Build phase commands"
+        - npm run build
+    
+    post_build:
+      commands:
+        - echo "upload file into s3 bucket"
+        - aws s3 sync dist/ s3://jepyviews.net
+artifacts:
+  files: '**/*'
+  base-directory: 'nodemicro/client/web'
+  discard-paths: no
