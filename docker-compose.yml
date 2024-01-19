@@ -1,17 +1,9 @@
 version: '3'
 services:
-  nat-streaming-server:
-    image: nats-streaming
-    expose:
-      - "4222"
-    ports:
-      - "8222:8222"
-    hostname: nats-server
-
-  node-users-app:
+  node-auth-app:
     build:
       dockerfile: Dockerfile
-      context: ./users
+      context: ./auth
     volumes:
       - /app/node_modules
       - ./users:/app
@@ -20,36 +12,8 @@ services:
     environment:
       - MONGO_USER=jepymongo
       - MONGO_PASSWORD=jepymongo
-      - "NATS_URI=nats://nats:4222"
     depends_on:
       - mongo
-      - nat-streaming-server
-      
-  node-shopping-app:
-    build:
-      dockerfile: Dockerfile
-      context: ./shopping
-    volumes:
-      - /app/node_modules
-      - ./shopping:/app
-    ports:
-      - "3002:3002"
-    environment:
-      - MONGO_USER=jepymongo
-      - MONGO_PASSWORD=jepymongo
-    depends_on:
-      - mongo
-
-  node-streaming-app:
-    build:
-      dockerfile: Dockerfile
-      context: ./video
-    volumes:
-      - /app/node_modules
-      - ./video:/app
-    ports:
-      - "3008:3008"
-  
   mongo:
     image: mongo
     environment:
