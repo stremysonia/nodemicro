@@ -9,6 +9,8 @@ services:
     volumes:
       - ./:/app
       - /app/node_modules
+    networks:
+      - foodiesnetwork
     ports:
       - "3001:3001"
     depends_on:
@@ -22,6 +24,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
       - node-auth-mongo:/data/db
+    networks:
+      - foodiesnetwork
     ports:
       - "27017:27017"
   
@@ -29,6 +33,8 @@ services:
     image: mongo-express
     container_name: node-auth-mongo-express
     restart: always
+    networks:
+      - foodiesnetwork
     ports:
       - 3002:8081
     environment:
@@ -40,6 +46,13 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
     links:
       - node-auth-mongo
+
+
+networks:
+  foodiesnetwork:
+    external: true
   
 volumes:
   node-auth-mongo:
+
+

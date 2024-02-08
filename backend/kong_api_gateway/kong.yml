@@ -1,0 +1,22 @@
+_format_version: "1.1"
+_transform: true
+
+services:
+- host: httpbin.org
+  name: example_service
+  port: 80
+  protocol: http
+  routes:
+  - name: example_route
+    paths:
+    - /route
+    strip_path: true
+
+- host: node-auth-app
+  port: 3001
+  name: auth_service
+  routes:
+  - name: auth_service
+    paths:
+    - /api/v1/auth
+    strip_path: true
